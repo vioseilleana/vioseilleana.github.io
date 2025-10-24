@@ -1,0 +1,703 @@
+```
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saka Green - Sustainable Clothing Donation</title>
+    <style>
+         :root {
+            --primary-green: #2ECC71;
+            --off-white: #F5F5F5;
+            --deep-teal: #34495E;
+            --soft-gray: #95A5A6;
+            --pure-white: #FFFFFF;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--off-white);
+            color: var(--deep-teal);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--pure-white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-green);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--deep-teal);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-green);
+        }
+        
+        .hero {
+            background-color: var(--deep-teal);
+            color: var(--pure-white);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-green);
+            color: var(--pure-white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 0.5rem;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(46, 204, 113, 0.3);
+        }
+        
+        .btn-secondary {
+            background-color: var(--pure-white);
+            color: var(--primary-green);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .news-section {
+            margin-bottom: 3rem;
+        }
+        
+        .news-card {
+            background-color: var(--pure-white);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .news-card h3 {
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .news-card .date {
+            color: var(--soft-gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        section {
+            margin: 3rem 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--deep-teal);
+            margin-bottom: 1rem;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background-color: var(--pure-white);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+        
+        .feature-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+        
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            background-color: var(--pure-white);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            background-color: var(--primary-green);
+            color: var(--pure-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .product-card {
+            background-color: var(--pure-white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-info h3 {
+            margin-bottom: 0.5rem;
+            color: var(--deep-teal);
+        }
+        
+        .product-info .price {
+            color: var(--primary-green);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .point-display {
+            background-color: var(--deep-teal);
+            color: var(--pure-white);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            margin: 2rem 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .point-display h2 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .point-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-green);
+        }
+        
+        .partner-logos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .partner-logos img {
+            height: 50px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: filter 0.3s;
+        }
+        
+        .partner-logos img:hover {
+            filter: grayscale(0%);
+        }
+        
+        footer {
+            background-color: var(--deep-teal);
+            color: var(--off-white);
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1rem 0;
+        }
+        
+        .footer-links a {
+            color: var(--off-white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-green);
+        }
+        
+        .copyright {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--soft-gray);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            nav ul {
+                margin-top: 1rem;
+            }
+            nav ul li {
+                margin-left: 1rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .features {
+                grid-template-columns: 1fr;
+            }
+            .partner-logos {
+                gap: 1rem;
+            }
+            .footer-links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+        /* Donation Modal */
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background-color: var(--pure-white);
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .close-btn {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--soft-gray);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--deep-teal);
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--soft-gray);
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo">Saka Green</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#rewards">Rewards</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="hero" id="home">
+        <h1>Transform Your Old Clothes Into Something New</h1>
+        <p>Donate, recycle, and earn points for sustainable shopping with Saka Green. Together we're reducing textile waste and supporting local artisans.</p>
+        <a href="#" class="btn" id="donate-btn">Donate Now</a><a href="#rewards" class="btn btn-secondary">Redeem Points</a></section>
+    <div class="container">
+        <section class="news-section">
+            <h2>Latest News</h2>
+            <div class="news-card">
+                <h3>New Recycling Facility Opens in Jakarta</h3>
+                <p class="date">June 15, 2023
+                </p>
+                <p>Our new state-of-the-art textile recycling facility can now process 5, 000 kg of clothing per day. Donated clothes are sorted, cleaned, and either redistributed or transformed into new materials.</p>
+            </div>
+            <div class="news-card">
+                <h3>Community Donation Drive Collected 2, 000 Pieces</h3>
+                <p class="date">May 28, 2023
+                </p>
+                <p>Thanks to our amazing community, we've collected over 2,000 pieces of clothing in our recent drive. These donations will be transformed into sustainable products or given to those in need.</p>
+            </div>
+        </section>
+        <section id="point-display">
+            <div class="point-display">
+                <h2>Your SakaPoints Balance</h2>
+                <div class="point-value" id="points">500</div>
+                <p>Points can be redeemed for discounts on local products or services like Gojek and Shopee.</p>
+            </div>
+        </section>
+        <section id="how-it-works">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>A simple 3-step process to turn your old clothes into something valuable</p>
+            </div>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div><img src="https://placehold.co/200x150" alt="Person donating clothes into a collection bin in a bright, clean donation center">
+                    <h3>Donate Your Clothes</h3>
+                    <p>Bring your gently used clothes to one of our collection points or schedule a pickup.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div><img src="https://placehold.co/200x150" alt="Industrial textile recycling machine processing old fabrics into new materials">
+                    <h3>We Process & Recycle</h3>
+                    <p>Clothes are sorted and either donated or transformed into new sustainable products.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div><img src="https://placehold.co/200x150" alt="Happy customer receiving saka-points on their smartphone app with shopping options">
+                    <h3>Earn & Redeem Points</h3>
+                    <p>Get SakaPoints for each donation, redeemable for products or services.</p>
+                </div>
+            </div>
+        </section>
+        <section id="products">
+            <div class="section-header">
+                <h2>Products Made From Recycled Clothes</h2>
+                <p>See how your donated clothes are transformed into beautiful, sustainable products</p>
+            </div>
+            <div class="products">
+                <div class="product-card"><img src="https://placehold.co/400x300" alt="Handmade sofa pillow with geometric fabric patterns made from recycled clothing materials">
+                    <div class="product-info">
+                        <h3>Recycled Sofa Pillow</h3>
+                        <div class="price">200 SakaPoints or Rp150.000</div>
+                        <p>Handmade from recycled clothing, each pillow is unique and sustainable.</p><a href="#" class="btn">Purchase</a></div>
+                </div>
+                <div class="product-card"><img src="https://placehold.co/400x300" alt="Set of colorful tote bags with various patterns made from upcycled denim fabric">
+                    <div class="product-info">
+                        <h3>Upcycled Tote Bag</h3>
+                        <div class="price">150 SakaPoints or Rp100.000</div>
+                        <p>Stylish and durable bags made from recycled denim and cotton.</p><a href="#" class="btn">Purchase</a></div>
+                </div>
+                <div class="product-card"><img src="https://placehold.co/400x300" alt="Hand-crafted quilt with patchwork design showing various fabric textures from reclaimed materials">
+                    <div class="product-info">
+                        <h3>Patchwork Quilt</h3>
+                        <div class="price">300 SakaPoints or Rp250.000</div>
+                        <p>Warm and cozy quilts made by local artisans from donated fabrics.</p><a href="#" class="btn">Purchase</a></div>
+                </div>
+            </div>
+        </section>
+        <section id="rewards">
+            <div class="section-header">
+                <h2>Redeem Your SakaPoints</h2>
+                <p>Your points can be used for discounts at these partners</p>
+            </div>
+            <div class="partner-logos"><img src="https://placehold.co/100x50" alt="Gojek ride-hailing and delivery service logo with green branding"><img src="https://placehold.co/100x50" alt="Shopee online marketplace logo with orange and white colors"><img src="https://placehold.co/100x50"
+                    alt="Local artisan cooperative logo featuring handmade craftsmanship"></div>
+            <div class="features">
+                <div class="feature-card">
+                    <h3>Gojek Vouchers</h3>
+                    <p>Redeem 100 points for Rp50.000 off your next ride or food delivery.</p><a href="#" class="btn">Redeem</a></div>
+                <div class="feature-card">
+                    <h3>Shopee Credits</h3>
+                    <p>Convert 150 points to Rp100.000 ShopeePay balance.</p><a href="#" class="btn">Redeem</a></div>
+                <div class="feature-card">
+                    <h3>Local Products</h3>
+                    <p>Use points directly for our handmade recycled products.</p><a href="#" class="btn">Browse</a></div>
+            </div>
+        </section>
+        <section id="about">
+            <div class="section-header">
+                <h2>Our Recycling Process</h2>
+                <p>Transparency in how we handle your donations</p>
+            </div>
+            <div class="feature-card"><img src="https://placehold.co/800x400" alt="Inside view of textile recycling facility showing sorting conveyor belts and workers processing materials">
+                <h3>From Your Closet to New Products</h3>
+                <p>When you donate clothes to SakaGreen, they embark on a sustainable journey:</p>
+                <ol style="margin-top: 1rem; padding-left: 2rem;">
+                    <li><strong>Collection:</strong>Clothes are received at our centers and sorted by condition.</li>
+                    <li><strong>Donation:</strong>Wearable items are cleaned and donated to communities in need.</li>
+                    <li><strong>Recycling:</strong>Non-wearable clothes are shredded and processed into fibers.</li>
+                    <li><strong>Repurposing:</strong>Fibers become stuffing for pillows or materials for new products.</li>
+                </ol>
+                <p style="margin-top: 1rem;">Track your donation's journey through our app and see the impact you're making!</p>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <div class="footer-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Contact Us</a><a href="#">FAQ</a></div>
+        <p>SakaGreen - Transforming Textile Waste into Sustainable Value</p>
+        <p class="copyright">© 2025 SakaGreen. All rights reserved.</p>
+    </footer>
+    <!-- Donation Modal -->
+    <div class="modal" id="donation-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Schedule a Donation</h2><span class="close-btn">&times;
+</span></div>
+            <form id="donation-form">
+                <div class="form-group"><label for="name">Full Name</label><input type="text" id="name" required></div>
+                <div class="form-group"><label for="email">Email</label><input type="email" id="email" required></div>
+                <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" required></div>
+                <div class="form-group"><label for="address">Pickup Address</label><textarea id="address" required></textarea></div>
+                <div class="form-group"><label>Donation Type</label>
+                    <div class="radio-group">
+                        <div class="radio-option"><input type="radio" id="donate" name="type" value="donate" checked><label for="donate">Donate (for reuse)</label></div>
+                        <div class="radio-option"><input type="radio" id="recycle" name="type" value="recycle"><label for="recycle">Recycle (for processing)</label></div>
+                    </div>
+                </div>
+                <div class="form-group"><label for="date">Preferred Pickup Date</label><input type="date" id="date" required></div>
+                <div class="form-group"><label for="description">Description of Items</label><textarea id="description" placeholder="Please describe the clothes you're donating (quantity, type, condition)"></textarea></div><button type="submit" class="btn" style="width: 100%;">Submit Donation</button></form>
+        </div>
+    </div>
+    <script>
+        // DOM Elements
+        const donateBtn = document.getElementById('donate-btn');
+        const modal = document.getElementById('donation-modal');
+        const closeBtn = document.querySelector('.close-btn');
+        const donationForm = document.getElementById('donation-form');
+        const pointsDisplay = document.getElementById('points');
+        // Event Listeners
+        donateBtn.addEventListener('click', openModal);
+        closeBtn.addEventListener('click', closeModal);
+        window.addEventListener('click', outsideClick);
+        donationForm.addEventListener('submit', handleDonation);
+        // Points Simulation (would come from backend in real app)
+        let points = 500;
+        // Modal Functions
+        function openModal() {
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function outsideClick(e) {
+            if (e.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Form Handling
+        function handleDonation(e) {
+            e.preventDefault();
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const type = document.querySelector('input[name="type"]:checked').value;
+            // Simulate donation processing
+            alert(`Thank you, $ {
+        name
+    }
+    ! Your $ {
+        type
+    }
+    pickup has been scheduled. You'll receive confirmation at ${email}.`);
+            // Reward points based on donation type
+            const pointsEarned = type === 'donate' ? Math.floor(Math.random() * 60) + 40 : Math.floor(Math.random() * 40) + 20;
+            points += pointsEarned;
+            pointsDisplay.textContent = points;
+            // Close modal and reset form
+            closeModal();
+            donationForm.reset();
+            // Show points earned notification
+            showPointsNotification(pointsEarned);
+        }
+
+        function showPointsNotification(pointsEarned) {
+            const notification = document.createElement('div');
+            notification.style.position = 'fixed';
+            notification.style.bottom = '20px';
+            notification.style.right = '20px';
+            notification.style.backgroundColor = '#2ECC71';
+            notification.style.color = 'white';
+            notification.style.padding = '15px 25px';
+            notification.style.borderRadius = '5px';
+            notification.style.boxShadow = '0 2px 10px rgba(0,0,0,0.2)';
+            notification.style.zIndex = '1000';
+            notification.style.animation = 'slideIn 0.5s ease-out';
+            notification.innerHTML = `🎉 You earned $ {
+        pointsEarned
+    }
+    SakaPoints!`;
+            document.body.appendChild(notification);
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.5s ease-in';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 500);
+            }, 3000);
+        }
+
+        // Add slide animations to style
+        const style = document.createElement('style');
+        style.textContent = ` @keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+`;
+        document.head.appendChild(style);
+    </script>
+</body>
+
+</html> ```
